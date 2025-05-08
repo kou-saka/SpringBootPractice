@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>管理者：お問い合わせ一覧</title>
+</head>
+<body>
+  <h1>お問い合わせ一覧</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>姓</th>
+        <th>名</th>
+        <th>種別</th>
+      </tr>
+    </thead>
+    <tbody>
+		<!--Thymeleaf の th:each で List<Contact> をループ-->
+      <tr th:each="c : ${contacts}">
+        <td th:text="${c.id}">1</td>	<!--テキストを置き換え(1はダミーの表示)-->
+        <td th:text="${c.lastName}">Geek</td>
+        <td th:text="${c.firstName}">太郎</td>
+        <td th:text="${c.contactType}">サービス</td>
+	  </tr>
+    </tbody>
+  </table>
+  <p><a th:href="@{/admin/signout}">ログアウト</a></p> <!--セッション破棄つける-->
+</body>
+</html>
