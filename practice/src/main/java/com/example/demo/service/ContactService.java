@@ -16,5 +16,5 @@ public interface ContactService {
      * DB に保存された全てのお問い合わせを取得する
      * @return Contact エンティティのリスト
      */
-    List<Contact> findAllContacts();
+    List<Contact> findAllContacts();   // これでDBから全件を返すと定義した
 }

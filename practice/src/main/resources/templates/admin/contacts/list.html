@@ -16,9 +16,10 @@
       </tr>
     </thead>
     <tbody>
+		<!--Thymeleaf の th:each で List<Contact> をループ-->
       <tr th:each="c : ${contacts}">
-        <td th:text="${c.id}">1</td>
-        <td th:text="${c.lastName}">山田</td>
+        <td th:text="${c.id}">1</td>	<!--テキストを置き換え(1はダミーの表示)-->
+        <td th:text="${c.lastName}">Geek</td>
         <td th:text="${c.firstName}">太郎</td>
         <td th:text="${c.contactType}">サービス</td>
 	  </tr>

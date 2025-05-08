@@ -1,11 +1,11 @@
 package com.example.demo.service;
 
-import java.util.List;                                   // ① List を使うためのインポート
+import java.util.List;                                   // List を使うためのインポート
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entity.Contact;                  // ② Contact エンティティを扱うためのインポート
+import com.example.demo.entity.Contact;                  // Contact エンティティをつかうためのインポート
 import com.example.demo.form.ContactForm;
 import com.example.demo.repository.ContactRepository;
 
@@ -31,10 +31,10 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public List<Contact> findAllContacts() {               // ③ メソッドシグネチャ
-        // ④ JpaRepository が提供する findAll() を呼び出して、
-        //    DB の contacts テーブルの全レコードを取得し、
-        //    List<Contact> として返します。
+    public List<Contact> findAllContacts() {               
+        // JpaRepository が提供する findAll() を呼び出して、
+        // DB の contacts テーブルの全レコードを取得し、
+        // List<Contact> として返します。
         return contactRepository.findAll();
     }
 }
