@@ -83,5 +83,19 @@ public class AdminController {
         model.addAttribute("contact", contact);
         return "admin/contacts/edit";
     }
+    
+    //作成処理
+    @GetMapping("/contacts/new")
+    public String newForm(Model model) {
+    	model.addAttribute("contactForm", new ContactForm());
+    	return "admin/contacts/new";
+    }
+    
+    //登録処理
+    @PostMapping("/contacts")
+    public String create(@ModelAttribute("contactForm") ContactForm form) {
+    	contactService.saveContact(form);
+    	return "redirect:/admin/contacts";
+    }
 
 }
