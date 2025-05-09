@@ -13,6 +13,8 @@
         <th>姓</th>
         <th>名</th>
         <th>種別</th>
+		<th>詳細</th>
+		<th>編集</th>	
       </tr>
     </thead>
     <tbody>
@@ -22,6 +24,8 @@
         <td th:text="${c.lastName}">Geek</td>
         <td th:text="${c.firstName}">太郎</td>
         <td th:text="${c.contactType}">サービス</td>
+		<td><a th:href="@{/admin/contacts/{id}(id=${c.id})}">詳細</a></td>
+		<td><a th:href="@{/admin/contacts/{id}/edit(id=${c.id})}">編集</a></td>
 	  </tr>
     </tbody>
   </table>
