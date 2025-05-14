@@ -17,7 +17,7 @@ import com.example.demo.service.AdminService;
 @RequestMapping("/admin")
 public class AdminAuthController {
 
-    private final AdminService adminService;
+    private final AdminService adminService; //管理者登録はAdminServiceにまかせる
 
   
     public AdminAuthController(AdminService adminService) {
@@ -32,13 +32,18 @@ public class AdminAuthController {
     
     @PostMapping("/signup")
     public String signup(
-            @Validated @ModelAttribute("adminForm") AdminForm adminForm,BindingResult result) {
+            @Validated @ModelAttribute("adminForm") AdminForm adminForm,
+            BindingResult result) {
         if (result.hasErrors()) {
             return "admin/signup";
         }
         adminService.register(adminForm);
-        return "redirect:/admin/signup?success";  //あとでsigninに変更
+        return "redirect:/admin/signin";
     }
-
+    
+    @GetMapping("/signin")
+    public String signin() {
+      return "admin/signin";
+    }
     
 }

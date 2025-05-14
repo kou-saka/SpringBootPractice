@@ -30,6 +30,12 @@
     </tbody>
   </table>
   <p><a th:href="@{/admin/contacts/new}">新規登録</a></p>
-  <p><a th:href="@{/admin/signout}">ログアウト</a></p> <!--セッション破棄つける-->
+  <p>
+    <form th:action="@{/admin/signout}" method="post" style="display:inline">
+      <!-- CSRF トークンの埋め込み -->
+      <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+      <button type="submit">ログアウト</button>
+    </form>
+  </p>
 </body>
 </html>
